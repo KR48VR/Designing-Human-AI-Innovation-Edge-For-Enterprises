@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing a Human-AI Innovation Edge for Enterprises | SUTD x SGTech x SSG</title>
+<meta name="description" content="Ten decisions leaders can make to put humans at the heart of the age of AI. 17 strategy use cases from Singapore's national human-AI innovation ecosystem.">
+<meta property="og:title" content="Designing a Human-AI Innovation Edge for Enterprises">
+<meta property="og:description" content="What AI can do for people. What people can do with AI. Ten decisions for leaders, backed by 17 real strategy use cases.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e17;
+  --bg2:#0f1522;
+  --panel:#141b2d;
+  --panel2:#1a2338;
+  --line:rgba(212,169,78,.18);
+  --line2:rgba(255,255,255,.08);
+  --gold:#d4a94e;
+  --gold-bright:#e9c675;
+  --red:#e0563f;
+  --teal:#4fb8a8;
+  --text:#e8e6df;
+  --muted:#9aa3b5;
+  --dim:#6b7488;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:#0a0e17}
+h1,h2,h3,.serif{font-family:var(--serif)}
+a{color:var(--gold-bright);text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+.section{padding:96px 0}
+.section-title{font-size:clamp(30px,4.2vw,46px);font-weight:600;line-height:1.15;margin-bottom:16px;letter-spacing:-.01em}
+.section-sub{color:var(--muted);max-width:680px;font-size:17px;font-weight:300}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line2);transition:transform .3s}
+.nav-inner{max-width:1160px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--text);white-space:nowrap}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--muted);font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold-bright)}
+.nav-cta{background:var(--gold);color:#0a0e17!important;padding:9px 18px;border-radius:6px;font-weight:600}
+.nav-cta:hover{background:var(--gold-bright)}
+@media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:130px 0 80px;background:
+ radial-gradient(1100px 600px at 78% 12%,rgba(212,169,78,.10),transparent 60%),
+ radial-gradient(800px 500px at 12% 88%,rgba(224,86,63,.07),transparent 60%),
+ var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+ background:url('texture-hero.jpg') center top/cover no-repeat;opacity:.42;
+ mask-image:linear-gradient(180deg,black 55%,transparent 98%)}
+.hero-inner{position:relative;z-index:2}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.badge{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:7px 14px;border:1px solid var(--line);border-radius:999px;color:var(--gold-bright);background:rgba(212,169,78,.06)}
+.hero h1{font-size:clamp(38px,6vw,72px);line-height:1.06;font-weight:600;letter-spacing:-.015em;max-width:900px}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero-lede{margin-top:26px;font-size:clamp(17px,2vw,21px);color:var(--muted);max-width:640px;font-weight:300}
+.hero-lede strong{color:var(--text);font-weight:500}
+.hero-actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:8px;font-weight:600;font-size:15px;transition:all .25s;cursor:pointer;border:none;font-family:var(--sans)}
+.btn-gold{background:var(--gold);color:#0a0e17}
+.btn-gold:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,169,78,.25)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.22)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright)}
+.hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);color:var(--dim);font-size:11px;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero-scroll::after{content:"";width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* STATS BAND */
+.stats-band{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line2)}
+.stat-cell{background:var(--bg2);padding:44px 30px;text-align:center;transition:background .3s}
+.stat-cell:hover{background:var(--panel)}
+.stat-num{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:600;color:var(--gold-bright);line-height:1;display:flex;justify-content:center;align-items:baseline;gap:2px}
+.stat-num .unit{font-size:.55em;color:var(--gold)}
+.stat-label{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.45}
+@media(max-width:860px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* WHY NOW */
+.whynow{background:var(--bg)}
+.whynow-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;margin-top:20px}
+@media(max-width:900px){.whynow-grid{grid-template-columns:1fr}}
+.pull{font-family:var(--serif);font-size:clamp(21px,2.6vw,28px);line-height:1.45;font-weight:400;color:var(--text)}
+.pull em{color:var(--gold-bright)}
+.evidence-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:34px}
+.evidence-card h3{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-family:var(--sans);font-weight:600}
+.bar-row{margin-bottom:20px}
+.bar-row:last-child{margin-bottom:0}
+.bar-head{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:7px}
+.bar-head b{color:var(--gold-bright);font-weight:600}
+.bar-track{height:9px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-bright));width:0;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+.bar-fill.teal{background:linear-gradient(90deg,#3a9385,var(--teal))}
+.bar-note{font-size:12px;color:var(--dim);margin-top:20px;line-height:1.5}
+
+/* DECISIONS */
+.decisions{background:linear-gradient(180deg,var(--bg),var(--bg2) 30%,var(--bg))}
+.dec-list{margin-top:48px;border-top:1px solid var(--line2)}
+.dec-item{border-bottom:1px solid var(--line2)}
+.dec-head{display:grid;grid-template-columns:76px 1fr 40px;align-items:center;gap:18px;padding:26px 8px;cursor:pointer;transition:background .2s}
+.dec-head:hover{background:rgba(212,169,78,.04)}
+.dec-num{font-family:var(--serif);font-size:30px;color:var(--dim);font-weight:300;transition:color .3s}
+.dec-item.open .dec-num,.dec-head:hover .dec-num{color:var(--gold)}
+.dec-title{font-family:var(--serif);font-size:clamp(18px,2.2vw,23px);font-weight:600;line-height:1.3}
+.dec-arrow{width:34px;height:34px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .3s;font-size:16px;flex-shrink:0}
+.dec-item.open .dec-arrow{transform:rotate(45deg);border-color:var(--gold);color:var(--gold)}
+.dec-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.dec-body-inner{padding:0 8px 30px 94px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+@media(max-width:760px){.dec-head{grid-template-columns:44px 1fr 36px}.dec-num{font-size:22px}.dec-body-inner{padding-left:8px;grid-template-columns:1fr}}
+.dec-text{color:var(--muted);font-size:15.5px;max-width:640px;font-weight:300}
+.dec-text strong{color:var(--text);font-weight:500}
+.dec-chip{background:rgba(212,169,78,.08);border:1px solid var(--line);border-radius:10px;padding:14px 18px;min-width:190px}
+.dec-chip .cv{font-family:var(--serif);font-size:26px;color:var(--gold-bright);font-weight:600;line-height:1.1}
+.dec-chip .cl{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* TRILINGUAL */
+.tri{background:var(--bg)}
+.tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+@media(max-width:860px){.tri-grid{grid-template-columns:1fr}}
+.tri-card{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:34px 30px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;cursor:default}
+.tri-card:hover{transform:translateY(-6px);border-color:var(--line)}
+.tri-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.tri-card.design::before{background:var(--gold)}
+.tri-card.ai::before{background:var(--teal)}
+.tri-card.domain::before{background:var(--red)}
+.tri-icon{width:42px;height:42px;fill:none;stroke-width:1.5;margin-bottom:16px;display:block}
+.tri-card h3{font-size:21px;margin-bottom:10px}
+.tri-card p{color:var(--muted);font-size:14.5px;font-weight:300}
+.tri-formula{text-align:center;margin-top:44px;font-family:var(--serif);font-size:clamp(19px,2.6vw,26px);color:var(--text)}
+.tri-formula b{color:var(--gold-bright)}
+.ttn{margin-top:60px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:40px}
+.ttn h3{font-size:24px;margin-bottom:8px}
+.ttn-sub{color:var(--muted);font-size:15px;margin-bottom:28px;font-weight:300}
+.ttn-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.ttn-tab{padding:10px 20px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .25s;font-family:var(--sans)}
+.ttn-tab.active{background:var(--gold);border-color:var(--gold);color:#0a0e17}
+.ttn-panel{display:none;animation:fadeIn .4s}
+.ttn-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:760px){.ttn-panel.active{grid-template-columns:1fr}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ttn-panel h4{font-family:var(--serif);font-size:19px;color:var(--gold-bright);margin-bottom:8px}
+.ttn-panel p{color:var(--muted);font-size:14.5px;font-weight:300}
+.ttn-quote{background:rgba(212,169,78,.06);border-left:3px solid var(--gold);padding:18px 20px;border-radius:0 10px 10px 0;font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--text);line-height:1.55}
+.ttn-quote span{display:block;font-family:var(--sans);font-style:normal;font-size:12px;color:var(--dim);margin-top:8px}
+
+/* CASES */
+.cases{background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:40px 0 30px}
+.filter{padding:9px 18px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--muted);font-size:13.5px;font-weight:600;cursor:pointer;transition:all .25s;font-family:var(--sans)}
+.filter:hover{border-color:var(--gold);color:var(--gold-bright)}
+.filter.active{background:var(--gold);border-color:var(--gold);color:#0a0e17}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:980px){.case-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.case-grid{grid-template-columns:1fr}}
+.case-card{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:26px;cursor:pointer;transition:transform .3s,border-color .3s,box-shadow .3s;display:flex;flex-direction:column;position:relative}
+.case-card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.case-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:12px}
+.case-card h3{font-size:18px;line-height:1.3;margin-bottom:10px}
+.case-stat{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--gold-bright);line-height:1.1;margin:8px 0 2px}
+.case-statlabel{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.case-hook{color:var(--muted);font-size:13.5px;font-weight:300;flex-grow:1}
+.case-more{margin-top:16px;font-size:13px;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:6px}
+.case-card.hidden{display:none}
+
+/* MODAL */
+.modal-back{position:fixed;inset:0;background:rgba(6,9,15,.8);backdrop-filter:blur(6px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:60px 20px;overflow-y:auto}
+.modal-back.open{display:flex}
+.modal{background:var(--panel2);border:1px solid var(--line);border-radius:18px;max-width:720px;width:100%;padding:44px;position:relative;animation:modalIn .35s cubic-bezier(.22,1,.36,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--muted);font-size:18px;cursor:pointer;transition:all .2s}
+.modal-close:hover{border-color:var(--gold);color:var(--gold)}
+.modal .case-tag{margin-bottom:10px}
+.modal h3{font-size:26px;margin-bottom:18px;line-height:1.25}
+.modal-stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.mstat{background:rgba(212,169,78,.07);border:1px solid var(--line);border-radius:10px;padding:12px 18px}
+.mstat .v{font-family:var(--serif);font-size:22px;color:var(--gold-bright);font-weight:600}
+.mstat .l{font-size:11.5px;color:var(--muted)}
+.modal-body{color:var(--muted);font-size:15px;font-weight:300;line-height:1.7}
+.modal-body strong{color:var(--text);font-weight:500}
+.modal-quote{margin-top:20px;border-left:3px solid var(--gold);padding:4px 0 4px 18px;font-family:var(--serif);font-style:italic;color:var(--text);font-size:15.5px}
+.modal-lesson{margin-top:22px;background:rgba(79,184,168,.07);border:1px solid rgba(79,184,168,.25);border-radius:10px;padding:16px 20px;font-size:14px}
+.modal-lesson b{color:var(--teal);display:block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px}
+
+/* PLAYBOOK */
+.playbook{background:var(--bg)}
+.pb-box{margin-top:44px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:44px}
+.pb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}
+@media(max-width:760px){.pb-grid{grid-template-columns:1fr}}
+.pb-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:10px;cursor:pointer;transition:all .25s;user-select:none}
+.pb-item:hover{border-color:var(--line)}
+.pb-item.checked{background:rgba(212,169,78,.07);border-color:var(--gold)}
+.pb-check{width:22px;height:22px;border:2px solid var(--dim);border-radius:6px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;transition:all .2s}
+.pb-item.checked .pb-check{background:var(--gold);border-color:var(--gold);color:#0a0e17}
+.pb-item span{font-size:14px;color:var(--muted)}
+.pb-item.checked span{color:var(--text)}
+.pb-result{text-align:center;padding-top:10px}
+.pb-score{font-family:var(--serif);font-size:52px;color:var(--gold-bright);font-weight:600;line-height:1}
+.pb-msg{color:var(--muted);font-size:15px;margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto;min-height:48px}
+
+/* CTA */
+.cta{position:relative;background:
+ radial-gradient(900px 500px at 50% 0%,rgba(212,169,78,.12),transparent 65%),
+ var(--bg2);border-top:1px solid var(--line)}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
+ background:url('texture-cta.jpg') center/cover no-repeat;opacity:.22;
+ mask-image:linear-gradient(180deg,transparent 0%,black 30%,black 75%,transparent 100%)}
+.cta .wrap{position:relative;z-index:2}
+
+/* GET THE REPORT */
+.getreport{background:var(--bg);border-top:1px solid var(--line2)}
+.gr-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;margin-top:8px}
+@media(max-width:860px){.gr-grid{grid-template-columns:1fr;gap:36px}}
+.gr-cover{position:relative;max-width:300px;margin:0 auto}
+.gr-cover img{width:100%;border-radius:8px;display:block;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px var(--line);transform:rotate(-2deg);transition:transform .4s}
+.gr-cover:hover img{transform:rotate(0deg) scale(1.02)}
+.gr-cover::after{content:"98 PAGES · 17 USE CASES";position:absolute;top:-14px;right:-14px;background:var(--gold);color:#0a0e17;font-size:10px;font-weight:700;letter-spacing:.1em;padding:8px 12px;border-radius:6px;transform:rotate(3deg)}
+.gr-quote{font-family:var(--serif);font-size:clamp(19px,2.4vw,25px);line-height:1.45;color:var(--text);margin:18px 0}
+.gr-quote em{color:var(--gold-bright)}
+.gr-text{color:var(--muted);font-size:15px;font-weight:300;max-width:560px}
+.gr-links{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.gr-link{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;padding:14px 18px;transition:border-color .25s,transform .25s;color:var(--text)}
+.gr-link:hover{border-color:var(--gold);transform:translateX(6px)}
+.gr-link .gl-badge{flex-shrink:0;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:11px;color:#0a0e17}
+.gr-link .gl-t{font-size:14.5px;font-weight:600}
+.gr-link .gl-s{font-size:12px;color:var(--dim)}
+.gr-link .gl-arrow{margin-left:auto;color:var(--gold);font-size:18px}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+@media(max-width:860px){.cta-grid{grid-template-columns:1fr}}
+.cta-card{background:var(--panel);border:1px solid var(--line2);border-radius:16px;padding:36px 30px;transition:transform .3s,border-color .3s;display:flex;flex-direction:column}
+.cta-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.cta-icon{font-size:30px;margin-bottom:18px}
+.cta-card h3{font-size:21px;margin-bottom:12px}
+.cta-card p{color:var(--muted);font-size:14.5px;font-weight:300;flex-grow:1}
+.cta-card ul{list-style:none;margin:16px 0 0}
+.cta-card li{font-size:13.5px;color:var(--muted);padding:7px 0;border-top:1px solid var(--line2);display:flex;gap:10px}
+.cta-card li::before{content:"—";color:var(--gold)}
+.cta-final{text-align:center;margin-top:70px}
+.cta-final h3{font-family:var(--serif);font-size:clamp(24px,3.4vw,36px);font-weight:600;max-width:760px;margin:0 auto 16px;line-height:1.3}
+.cta-final h3 em{color:var(--gold-bright)}
+.cta-final p{color:var(--muted);max-width:560px;margin:0 auto 34px;font-weight:300}
+
+/* ===== VISUAL UPGRADE ===== */
+/* hero orbit graphic */
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-art{display:none}}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 0 40px rgba(212,169,78,.12))}
+.orbit-spin{transform-origin:260px 260px;animation:spin 60s linear infinite}
+.orbit-spin2{transform-origin:260px 260px;animation:spinR 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinR{to{transform:rotate(-360deg)}}
+.node-pulse{animation:pulse 3s ease-in-out infinite}
+.node-pulse.d2{animation-delay:1s}.node-pulse.d3{animation-delay:2s}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+
+/* partners band */
+.partners{background:var(--bg2);border-top:1px solid var(--line2);padding:64px 0}
+.partners-head{text-align:center;margin-bottom:40px}
+.partners-head .eyebrow{margin-bottom:10px}
+.partners-head p{color:var(--muted);font-size:15px;max-width:640px;margin:0 auto;font-weight:300}
+.partner-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;max-width:960px;margin:0 auto}
+@media(max-width:860px){.partner-flow{grid-template-columns:1fr;gap:14px}.partner-link{display:none}}
+.partner-card{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:28px 24px;text-align:center;transition:transform .3s,border-color .3s}
+.partner-card:hover{transform:translateY(-4px);border-color:var(--line)}
+.partner-mono{width:58px;height:58px;margin:0 auto 14px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:19px;color:#0a0e17}
+.partner-card h4{font-family:var(--serif);font-size:18px;margin-bottom:6px}
+.partner-card p{font-size:12.5px;color:var(--muted);line-height:1.55}
+.partner-role{display:inline-block;margin-top:10px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:4px 11px}
+.partner-link{display:flex;align-items:center;padding:0 8px;color:var(--gold);font-size:22px}
+.swda-note{max-width:760px;margin:30px auto 0;background:rgba(79,184,168,.06);border:1px solid rgba(79,184,168,.25);border-radius:12px;padding:16px 22px;font-size:13.5px;color:var(--muted);text-align:center}
+.swda-note b{color:var(--teal)}
+
+/* donut */
+.donut-wrap{display:flex;align-items:center;gap:22px;margin-top:30px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:22px 24px}
+.donut{width:110px;height:110px;flex-shrink:0}
+.donut .ring-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:12}
+.donut .ring-val{fill:none;stroke:var(--gold);stroke-width:12;stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1);transform:rotate(-90deg);transform-origin:center}
+.donut text{fill:var(--gold-bright);font-family:var(--serif);font-size:24px;font-weight:600}
+.donut-cap{font-size:13.5px;color:var(--muted);line-height:1.55}
+.donut-cap b{color:var(--text)}
+
+/* infographic strip */
+.viz{background:var(--bg2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.viz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+@media(max-width:900px){.viz-grid{grid-template-columns:1fr}}
+.viz-card{background:var(--panel);border:1px solid var(--line2);border-radius:16px;padding:30px 28px;transition:transform .3s,border-color .3s}
+.viz-card:hover{transform:translateY(-5px);border-color:var(--line)}
+.viz-card h4{font-family:var(--serif);font-size:19px;margin-bottom:4px}
+.viz-card .viz-sub{font-size:12.5px;color:var(--dim);margin-bottom:20px}
+.viz-card svg{width:100%;height:auto;display:block}
+.viz-card .viz-note{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.5}
+.gap-bar{transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+
+/* venn */
+.venn-wrap{display:flex;justify-content:center;margin:46px 0 8px}
+.venn-wrap svg{width:min(460px,90%);height:auto}
+.venn-c{mix-blend-mode:screen;opacity:.85}
+.venn-label{font-family:var(--sans);font-size:15px;font-weight:600;fill:var(--text)}
+.venn-mid{font-family:var(--serif);font-size:13px;fill:#0a0e17;font-weight:700}
+
+/* decision icons */
+.dec-num{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.dec-ic{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.6;opacity:.85}
+@media(max-width:760px){.dec-ic{display:none}}
+
+/* case card accents */
+.case-card{overflow:hidden}
+.case-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--gold));opacity:.8}
+.case-card .case-ic{position:absolute;top:20px;right:20px;width:30px;height:30px;stroke:var(--accent,var(--gold));fill:none;stroke-width:1.5;opacity:.5}
+.case-card[data-cat="sme"]{--accent:#d4a94e}
+.case-card[data-cat="large"]{--accent:#4fb8a8}
+.case-card[data-cat="public"]{--accent:#e0563f}
+.case-card[data-cat="talent"]{--accent:#8f7bd8}
+.case-card[data-cat="leader"]{--accent:#5a9bd8}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--dim)}
+.legend span{display:flex;align-items:center;gap:7px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* section ghost numbers */
+.section{position:relative;overflow:hidden}
+.ghost{position:absolute;top:30px;right:-10px;font-family:var(--serif);font-size:clamp(120px,18vw,260px);font-weight:700;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--line2);padding:50px 0 40px}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{font-family:var(--serif);font-size:18px;font-weight:700}
+.foot-brand span{color:var(--gold)}
+.foot-note{color:var(--dim);font-size:12.5px;max-width:460px;margin-top:10px;line-height:1.6}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{color:var(--muted);font-size:13px}
+.foot-links a:hover{color:var(--gold-bright)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="brand">Human-AI <span>Innovation Edge</span></div>
+    <div class="nav-links">
+      <a href="#evidence">The Evidence</a>
+      <a href="#decisions">Ten Decisions</a>
+      <a href="#trilingual">The Framework</a>
+      <a href="#cases">Use Cases</a>
+      <a href="#playbook">Your Playbook</a>
+      <a href="#getreport">Get the Report</a>
+      <a href="#workwithus" class="nav-cta">Work with Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badges">
+          <span class="badge">SUTD &times; SGTech &times; SWDA (formerly SSG)</span>
+          <span class="badge">Strategy Use Cases &middot; April 2026</span>
+        </div>
+        <h1>Designing a <em>Human-AI</em> Innovation Edge for Enterprises</h1>
+        <p class="hero-lede">Most conversations ask what AI can do — and what it will do <strong>to</strong> people. This briefing asks a better question: what can AI do <strong>for</strong> people, and what can your people do <strong>with</strong> AI? Seventeen real cases. Ten decisions only a leader can make.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#decisions">Explore the Ten Decisions</a>
+          <a class="btn btn-ghost" href="#cases">See the 17 Use Cases</a>
+          <a class="btn btn-ghost" href="#getreport">Download the Report</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="coreG" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e9c675" stop-opacity=".9"/>
+              <stop offset="60%" stop-color="#d4a94e" stop-opacity=".25"/>
+              <stop offset="100%" stop-color="#d4a94e" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- orbits -->
+          <circle cx="260" cy="260" r="235" fill="none" stroke="rgba(212,169,78,.15)" stroke-width="1" stroke-dasharray="3 7"/>
+          <circle cx="260" cy="260" r="178" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+          <circle cx="260" cy="260" r="120" fill="none" stroke="rgba(212,169,78,.22)" stroke-width="1" stroke-dasharray="1 5"/>
+          <!-- core: the human -->
+          <circle cx="260" cy="260" r="86" fill="url(#coreG)"/>
+          <circle cx="260" cy="260" r="46" fill="none" stroke="#e9c675" stroke-width="1.3"/>
+          <g stroke="#e9c675" stroke-width="1.6" fill="none" stroke-linecap="round">
+            <circle cx="260" cy="245" r="11"/>
+            <path d="M240 285 q20 -22 40 0"/>
+          </g>
+          <text x="260" y="322" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" letter-spacing="2.5" fill="#d4a94e">HUMANS AT THE HEART</text>
+          <!-- rotating nodes: Design / AI / Domain -->
+          <g class="orbit-spin">
+            <g transform="translate(260,82)">
+              <circle r="42" fill="#141b2d" stroke="#d4a94e" stroke-width="1.4" class="node-pulse"/>
+              <text y="4.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" letter-spacing="1.2" fill="#e9c675" font-weight="600">DESIGN</text>
+            </g>
+            <g transform="translate(414,349)">
+              <circle r="42" fill="#141b2d" stroke="#4fb8a8" stroke-width="1.4" class="node-pulse d2"/>
+              <text y="4.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" letter-spacing="1.2" fill="#7fd6c7" font-weight="600">AI</text>
+            </g>
+            <g transform="translate(106,349)">
+              <circle r="42" fill="#141b2d" stroke="#e0563f" stroke-width="1.4" class="node-pulse d3"/>
+              <text y="4.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" letter-spacing="1" fill="#ec8571" font-weight="600">DOMAIN</text>
+            </g>
+          </g>
+          <!-- counter-rotating small satellites -->
+          <g class="orbit-spin2">
+            <circle cx="260" cy="25" r="4" fill="#d4a94e"/>
+            <circle cx="464" cy="378" r="3" fill="#4fb8a8"/>
+            <circle cx="56" cy="378" r="3" fill="#e0563f"/>
+            <circle cx="430" cy="120" r="2.5" fill="rgba(233,198,117,.6)"/>
+            <circle cx="90" cy="140" r="2.5" fill="rgba(233,198,117,.6)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <div class="wrap">
+    <div class="partners-head reveal">
+      <div class="eyebrow">One publication. Three national partners.</div>
+      <p>This report is a collaboration: developed by <strong style="color:var(--text)">SUTD</strong>, and supported by <strong style="color:var(--text)">SGTech</strong> and <strong style="color:var(--text)">SkillsFuture Singapore</strong> — whose individual efforts converged into a single national ecosystem for human-AI innovation.</p>
+    </div>
+    <div class="partner-flow reveal">
+      <div class="partner-card">
+        <div class="partner-mono" style="background:linear-gradient(135deg,#e9c675,#d4a94e)">SUTD</div>
+        <h4>Singapore University of Technology and Design</h4>
+        <p>The world's first Design&middot;AI university. Developed the publication, and runs the research, workshops and executive programmes behind the case studies.</p>
+        <span class="partner-role">Research &middot; Training &middot; Innovation</span>
+      </div>
+      <div class="partner-link">&#8596;</div>
+      <div class="partner-card">
+        <div class="partner-mono" style="background:linear-gradient(135deg,#7fd6c7,#4fb8a8);font-size:12px">SGTech</div>
+        <h4>SGTech</h4>
+        <p>Singapore's leading trade association for tech, representing 1,400+ companies. Conceptualised the AI Impact Series and mobilised enterprises across the economy.</p>
+        <span class="partner-role">Enterprise Mobilisation</span>
+      </div>
+      <div class="partner-link">&#8596;</div>
+      <div class="partner-card">
+        <div class="partner-mono" style="background:linear-gradient(135deg,#ec8571,#e0563f)">SWDA</div>
+        <h4>Skills and Workforce Development Agency</h4>
+        <p>Drives the national SkillsFuture movement — the policies and programmes that enable the upskilling opportunities across these use cases.</p>
+        <span class="partner-role">National Skills Policy</span>
+      </div>
+    </div>
+    <div class="swda-note reveal"><b>Why "SWDA"?</b> On 1 July 2026, SkillsFuture Singapore (SSG) — which supported this April 2026 publication — merged with Workforce Singapore (WSG) to form the Skills and Workforce Development Agency (SWDA), bringing skills development and employment facilitation under one roof.</div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band" id="evidence">
+  <div class="stats-grid">
+    <div class="stat-cell reveal"><div class="stat-num"><span class="count" data-target="105000">0</span><span class="unit">+</span></div><div class="stat-label">individuals trained under Singapore's SkillsFuture AI movement</div></div>
+    <div class="stat-cell reveal"><div class="stat-num"><span class="count" data-target="1158">0</span></div><div class="stat-label">C-suite &amp; senior leaders trained through SUTD's executive programmes</div></div>
+    <div class="stat-cell reveal"><div class="stat-num"><span class="count" data-target="111">0</span></div><div class="stat-label">SMEs transformed through the SGTech x SUTD AI Impact Series</div></div>
+    <div class="stat-cell reveal"><div class="stat-num"><span class="count" data-target="92">0</span><span class="unit">%</span></div><div class="stat-label">of participants would recommend the programmes to their peers</div></div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="section whynow">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why this matters now</div>
+    <h2 class="section-title reveal">AI is only pro-worker when it creates new tasks. Most AI investment doesn't.</h2>
+    <div class="whynow-grid">
+      <div class="reveal">
+        <p class="pull">Landmark economics research warns that of five types of technology, <em>only new-task-creating technologies are unambiguously pro-worker</em>. Yet current AI investment overwhelmingly targets automation.</p>
+        <p style="margin-top:22px;color:var(--muted);font-weight:300">Singapore's answer: don't just train workers to use AI — empower them to <strong style="color:var(--text);font-weight:500">innovate and create with it</strong>. A decade of skills infrastructure (SSG, now SWDA), enterprise mobilisation across 1,400+ companies (SGTech), and design-led research and training (SUTD) have converged into a national approach that is ahead of the global curve. The evidence below shows it works.</p>
+        <div class="donut-wrap">
+          <svg class="donut" viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="42"/>
+            <circle class="ring-val" cx="50" cy="50" r="42" data-off="200.6"/>
+            <text x="50" y="58" text-anchor="middle">24%</text>
+          </svg>
+          <div class="donut-cap">A 2026 national analysis of <b>~37,000 work tasks</b> across ~2,000 job roles found roughly <b>24% have high potential for AI</b> — and, just as crucially, mapped where human-centric tasks endure: decision-making, self-management, learning agility.</div>
+        </div>
+      </div>
+      <div class="evidence-card reveal">
+        <h3>Design&middot;AI workshops vs. global training benchmarks</h3>
+        <div class="bar-row"><div class="bar-head"><span>AI adoption effectiveness</span><b>+30% vs baseline</b></div><div class="bar-track"><div class="bar-fill" data-w="65%"></div></div></div>
+        <div class="bar-row"><div class="bar-head"><span>AI proficiency effectiveness</span><b>+88% vs baseline</b></div><div class="bar-track"><div class="bar-fill" data-w="94%"></div></div></div>
+        <div class="bar-row"><div class="bar-head"><span>Confidence with AI</span><b>+30%</b></div><div class="bar-track"><div class="bar-fill teal" data-w="65%"></div></div></div>
+        <div class="bar-row"><div class="bar-head"><span>Creative self-efficacy</span><b>+11%</b></div><div class="bar-track"><div class="bar-fill teal" data-w="40%"></div></div></div>
+        <div class="bar-note">Effect sizes measured against published international research baselines for workplace training (Cohen's d). At Gardens by the Bay, workshop effects were roughly <b style="color:var(--gold-bright)">2&times; the industry benchmark</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEN DECISIONS -->
+<section class="section decisions" id="decisions">
+  <div class="wrap">
+    <div class="eyebrow reveal">The heart of the briefing</div>
+    <h2 class="section-title reveal">Ten decisions only leaders can make</h2>
+    <p class="section-sub reveal">The age of AI is here. How human it becomes is up to you. Each decision below is drawn from real evidence across the seventeen strategy use cases — click to expand.</p>
+    <div class="dec-list reveal" id="decList"></div>
+  </div>
+</section>
+
+<!-- TRILINGUAL -->
+<section class="section tri" id="trilingual">
+  <div class="wrap">
+    <div class="eyebrow reveal">The framework</div>
+    <h2 class="section-title reveal">Build "trilingual" talent</h2>
+    <p class="section-sub reveal">The organisations that win won't be the ones with the best AI. They'll be the ones whose people speak three languages at once — and know how to combine them.</p>
+    <div class="venn-wrap reveal" aria-hidden="true">
+      <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+        <circle class="venn-c" cx="230" cy="140" r="110" fill="rgba(212,169,78,.30)" stroke="#d4a94e" stroke-width="1.2"/>
+        <circle class="venn-c" cx="160" cy="252" r="110" fill="rgba(79,184,168,.28)" stroke="#4fb8a8" stroke-width="1.2"/>
+        <circle class="venn-c" cx="300" cy="252" r="110" fill="rgba(224,86,63,.26)" stroke="#e0563f" stroke-width="1.2"/>
+        <text class="venn-label" x="230" y="72" text-anchor="middle" fill="#e9c675">Design</text>
+        <text class="venn-label" x="92" y="310" text-anchor="middle" fill="#7fd6c7">AI</text>
+        <text class="venn-label" x="372" y="310" text-anchor="middle" fill="#ec8571">Domain</text>
+        <circle cx="230" cy="215" r="46" fill="#e9c675"/>
+        <text class="venn-mid" x="230" y="209" text-anchor="middle">TRILINGUAL</text>
+        <text class="venn-mid" x="230" y="225" text-anchor="middle">TALENT</text>
+        <text x="230" y="388" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="2" fill="#6b7488">WHERE THE THREE OVERLAP, ANYONE CAN INNOVATE</text>
+      </svg>
+    </div>
+    <div class="tri-grid">
+      <div class="tri-card design reveal"><svg class="tri-icon" viewBox="0 0 24 24" style="stroke:#e9c675"><circle cx="12" cy="12" r="10"/><path d="M16 8l-2.5 6.5L7 17l2.5-6.5L16 8z" stroke-linejoin="round"/></svg><h3>Design</h3><p>Framing the right problem before reaching for AI. Translating everyday frustrations into testable use cases. Prototyping early, iterating fast, and judging what's worth building at all.</p></div>
+      <div class="tri-card ai reveal"><svg class="tri-icon" viewBox="0 0 24 24" style="stroke:#4fb8a8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4" stroke-linecap="round"/></svg><h3>AI</h3><p>Going beyond chatbots and text prompts — to multi-modal AI, custom GPTs, low-code agents, and multi-agent solutions. Knowing which tool fits which problem, and how to verify outputs.</p></div>
+      <div class="tri-card domain reveal"><svg class="tri-icon" viewBox="0 0 24 24" style="stroke:#e0563f"><path d="M12 5c-2-1.5-5-2-9-2v16c4 0 7 .5 9 2 2-1.5 5-2 9-2V3c-4 0-7 .5-9 2zm0 0v16" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Domain</h3><p>The decade of practice AI cannot replicate. Domain expertise is what makes AI useful — it provides the context, constraints and judgement that turn generic output into real value.</p></div>
+    </div>
+    <p class="tri-formula reveal">Design &times; AI &times; Domain = <b>innovation from anyone, anywhere in your organisation</b></p>
+
+    <div class="ttn reveal">
+      <h3>Tool. Teammate. Or Neither.</h3>
+      <p class="ttn-sub">The most valuable new skill your people can develop is judgement — knowing which mode to work in. Explore each mode:</p>
+      <div class="ttn-tabs">
+        <button class="ttn-tab active" data-tab="tool">AI as Tool</button>
+        <button class="ttn-tab" data-tab="teammate">AI as Teammate</button>
+        <button class="ttn-tab" data-tab="neither">Neither</button>
+      </div>
+      <div class="ttn-panel active" id="tab-tool">
+        <div><h4>Execute and accelerate</h4><p>Delegate repetitive, structured, auditable tasks: data processing, report drafting, call routing, compliance checks. At KHL Printing, employee-built prototypes cut repetitive task time by up to 63%. Benefits are quantitative — speed, volume, consistency.</p></div>
+        <div class="ttn-quote">"It's like having a research assistant that never gets tired. But it's only the starting point."<span>— Founder, Art Loft (micro-SME)</span></div>
+      </div>
+      <div class="ttn-panel" id="tab-teammate">
+        <div><h4>Co-create and challenge</h4><p>Work with AI from conceptualisation to co-creation: strategy, analysis, design, forecasting. For complex leadership decisions, AI's different way of reasoning becomes a feature — a devil's advocate, blind-spot detector, even a muse. Humans hold authority.</p></div>
+        <div class="ttn-quote">"I used to think of AI as something that does things for you. Now I see it as something you think with — a partner, not a replacement."<span>— Participant, Gardens by the Bay</span></div>
+      </div>
+      <div class="ttn-panel" id="tab-neither">
+        <div><h4>Choose the human</h4><p>Some work demands what only humans can give: sensing a room, reading emotions, ethical trade-offs, relationships, the spark of curiosity between people. Choosing not to use AI is itself a skill — and a signal of a mature AI organisation.</p></div>
+        <div class="ttn-quote">"GPT can teach the what. But only a human can teach the how it feels."<span>— Fitness instructor, citizen case study</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC STRIP -->
+<section class="section viz">
+  <div class="wrap">
+    <div class="eyebrow reveal">Three numbers that make boards sit up</div>
+    <h2 class="section-title reveal">The evidence, in pictures</h2>
+    <div class="viz-grid">
+
+      <div class="viz-card reveal">
+        <h4>Half a day &rarr; 30 seconds</h4>
+        <div class="viz-sub">SJ Group &middot; per early-stage design iteration</div>
+        <svg viewBox="0 0 300 130">
+          <text x="0" y="16" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">Manual process</text>
+          <rect x="0" y="24" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="24" class="gap-bar" width="0" data-w="300" height="18" rx="9" fill="#e0563f" opacity=".75"/>
+          <text x="0" y="76" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">With AI agents (human reviews every handoff)</text>
+          <rect x="0" y="84" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="84" class="gap-bar" width="0" data-w="6" height="18" rx="9" fill="#4fb8a8"/>
+          <text x="16" y="98" font-family="Fraunces,serif" font-size="13" fill="#7fd6c7">&gt;99% faster</text>
+          <text x="0" y="126" font-family="Inter,sans-serif" font-size="10.5" fill="#6b7488">10&ndash;15 design options explored in a morning, instead of one.</text>
+        </svg>
+      </div>
+
+      <div class="viz-card reveal">
+        <h4>The Fidelity Gap</h4>
+        <div class="viz-sub">16 frontier AI models vs a senior strategist</div>
+        <svg viewBox="0 0 300 130">
+          <text x="0" y="16" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">Simple yes/no decisions</text>
+          <rect x="0" y="24" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="24" class="gap-bar" width="0" data-w="255" height="18" rx="9" fill="#d4a94e"/>
+          <text x="212" y="38" font-family="Fraunces,serif" font-size="13" fill="#0a0e17">80&ndash;90%</text>
+          <text x="0" y="76" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">Complex multi-variable trade-offs</text>
+          <rect x="0" y="84" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="84" class="gap-bar" width="0" data-w="120" height="18" rx="9" fill="#e0563f"/>
+          <text x="128" y="98" font-family="Fraunces,serif" font-size="13" fill="#ec8571">30&ndash;50%</text>
+          <text x="0" y="126" font-family="Inter,sans-serif" font-size="10.5" fill="#6b7488">AI mimics the voice of leadership — not yet the logic.</text>
+        </svg>
+      </div>
+
+      <div class="viz-card reveal">
+        <h4>2&times; the global benchmark</h4>
+        <div class="viz-sub">Design&middot;AI workshop effect sizes (Cohen's d)</div>
+        <svg viewBox="0 0 300 130">
+          <text x="0" y="16" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">Typical workplace training (overseas meta-analyses)</text>
+          <rect x="0" y="24" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="24" class="gap-bar" width="0" data-w="122" height="18" rx="9" fill="rgba(212,169,78,.45)"/>
+          <text x="130" y="38" font-family="Fraunces,serif" font-size="13" fill="#9aa3b5">d = 0.60&ndash;0.82</text>
+          <text x="0" y="76" font-family="Inter,sans-serif" font-size="11" fill="#9aa3b5">Gardens by the Bay Design&middot;AI workshop</text>
+          <rect x="0" y="84" width="300" height="18" rx="9" fill="rgba(255,255,255,.09)"/>
+          <rect x="0" y="84" class="gap-bar" width="0" data-w="280" height="18" rx="9" fill="#d4a94e"/>
+          <text x="188" y="98" font-family="Fraunces,serif" font-size="13" fill="#0a0e17">d = 1.23&ndash;1.86</text>
+          <text x="0" y="126" font-family="Inter,sans-serif" font-size="10.5" fill="#6b7488">Hands-on building beats lectures — measurably.</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section cases" id="cases">
+  <div class="wrap">
+    <div class="eyebrow reveal">The proof</div>
+    <h2 class="section-title reveal">Seventeen strategy use cases</h2>
+    <p class="section-sub reveal">From a ten-person art studio to an MNC's AI design team. From junior colleges to national institutions. Filter by what looks most like your organisation — every card opens a deeper story.</p>
+    <div class="filters reveal" id="filters">
+      <button class="filter active" data-f="all">All</button>
+      <button class="filter" data-f="sme">SMEs &amp; Micro</button>
+      <button class="filter" data-f="large">Large &amp; MNC</button>
+      <button class="filter" data-f="public">Public Sector</button>
+      <button class="filter" data-f="talent">Education &amp; Workforce</button>
+      <button class="filter" data-f="leader">Leadership &amp; Strategy</button>
+    </div>
+    <div class="legend reveal">
+      <span><i style="background:#d4a94e"></i>SMEs &amp; Micro</span>
+      <span><i style="background:#4fb8a8"></i>Large &amp; MNC</span>
+      <span><i style="background:#e0563f"></i>Public Sector</span>
+      <span><i style="background:#8f7bd8"></i>Education &amp; Workforce</span>
+      <span><i style="background:#5a9bd8"></i>Leadership &amp; Strategy</span>
+    </div>
+    <div class="case-grid" id="caseGrid" style="margin-top:24px"></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-back" id="modalBack">
+  <div class="modal" id="modalBox" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">&#10005;</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- PLAYBOOK -->
+<section class="section playbook" id="playbook">
+  <div class="wrap">
+    <div class="eyebrow reveal">Make it yours</div>
+    <h2 class="section-title reveal">How many of the ten decisions has your organisation made?</h2>
+    <p class="section-sub reveal">Tick what's genuinely true today. Be honest — the gap is where your edge will come from.</p>
+    <div class="pb-box reveal">
+      <div class="pb-grid" id="pbGrid"></div>
+      <div class="pb-result">
+        <div class="pb-score"><span id="pbScore">0</span><span style="font-size:.5em;color:var(--gold)">/10</span></div>
+        <p class="pb-msg" id="pbMsg">Tick the decisions you've already made to see where you stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET THE REPORT -->
+<section class="section getreport" id="getreport">
+  <div class="wrap">
+    <div class="eyebrow reveal">The publication</div>
+    <h2 class="section-title reveal">Get the full report</h2>
+    <div class="gr-grid">
+      <a class="gr-cover reveal" href="https://www.sutd.edu.sg/foi-report/designing-a-human-ai-innovation-edge-for-enterprises" target="_blank" rel="noopener" aria-label="Download the report PDF">
+        <img src="cover-front.jpg" alt="Report cover: Designing a Human-AI Innovation Edge for Enterprises" loading="lazy">
+      </a>
+      <div class="reveal">
+        <p class="gr-quote">"This report is a <em>first draft of the future</em> — a sharing of what we've learnt so far."</p>
+        <p class="gr-text">It captures the first wave of case studies from ongoing research, experimentation, and deployment across Singapore's organisations, schools, and workforce development institutions. Additional case studies will be added as new partnerships produce evidence and new patterns emerge. These use cases show leaders ten decisions you can make to put humans at the heart of our age of AI — and strive closer to a human-centred future.</p>
+        <div class="gr-links">
+          <a class="gr-link" href="https://www.sutd.edu.sg/future-of-innovation/strategy-use-cases-for-enterprises/" target="_blank" rel="noopener">
+            <span class="gl-badge" style="background:linear-gradient(135deg,#e9c675,#d4a94e)">SUTD</span>
+            <span><span class="gl-t">Download from SUTD</span><br><span class="gl-s">Future of Innovation — Strategy use cases for enterprises</span></span>
+            <span class="gl-arrow">&rarr;</span>
+          </a>
+          <a class="gr-link" href="https://jobsandskills.skillsfuture.gov.sg/insights/sfjsi/sfjsi-may-2026" target="_blank" rel="noopener">
+            <span class="gl-badge" style="background:linear-gradient(135deg,#ec8571,#e0563f)">SWDA</span>
+            <span><span class="gl-t">Read via SkillsFuture Jobs-Skills Insights</span><br><span class="gl-s">Featured in the May 2026 issue (SSG, now SWDA)</span></span>
+            <span class="gl-arrow">&rarr;</span>
+          </a>
+          <a class="gr-link" href="https://www.sgtech.org.sg/pageManagement/designingahuman-aiinnovationedgeforenterprises-strategyusecases" target="_blank" rel="noopener">
+            <span class="gl-badge" style="background:linear-gradient(135deg,#7fd6c7,#4fb8a8);font-size:9px">SGTech</span>
+            <span><span class="gl-t">Access via SGTech</span><br><span class="gl-s">Publications — Designing a Human-AI Innovation Edge for Enterprises</span></span>
+            <span class="gl-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta" id="workwithus">
+  <div class="wrap">
+    <div class="eyebrow reveal">Your next move</div>
+    <h2 class="section-title reveal">Work with us</h2>
+    <p class="section-sub reveal">Every result on this page came from partnership. The ecosystem behind this report — SUTD, SGTech, and SWDA (formerly SkillsFuture Singapore) — works with enterprises in three ways:</p>
+    <div class="cta-grid">
+      <div class="cta-card reveal">
+        <div class="cta-icon">&#128300;</div>
+        <h3>Research Partnerships</h3>
+        <p>Living labs and joint research that put your organisation ahead of the curve — the same engine behind SJ Group's AI design team and the C-suite digital twin study.</p>
+        <ul>
+          <li>D&middot;AI Fab Lab living labs inside your organisation (SUTD)</li>
+          <li>AI job-disruption co-forecasting in weeks, not months</li>
+          <li>Human-AI workflow &amp; job redesign research</li>
+        </ul>
+      </div>
+      <div class="cta-card reveal">
+        <div class="cta-icon">&#127891;</div>
+        <h3>Training &amp; Executive Education</h3>
+        <p>Hands-on programmes where your people don't learn about AI — they build with it, and leave with working prototypes for real business problems.</p>
+        <ul>
+          <li>AI Impact Series for enterprises &amp; SMEs (SGTech x SUTD)</li>
+          <li>Executive Programme for Leaders — 1,158 trained (SUTD)</li>
+          <li>Design&middot;AI professional workshops, 92% peer-recommended</li>
+        </ul>
+      </div>
+      <div class="cta-card reveal">
+        <div class="cta-icon">&#128640;</div>
+        <h3>Workforce Upgrading</h3>
+        <p>From first jobs to encore careers — pathways that turn your entire workforce into builders, with national SkillsFuture support where eligible.</p>
+        <ul>
+          <li>SkillsFuture programmes &amp; SME AI Skills Launchpad (SWDA)</li>
+          <li>What's Next programme for mature workforces</li>
+          <li>MSc in Design AI &amp; Forward Deployment Designer pathways</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-final reveal">
+      <h3>The age of AI is here. <em>How human it becomes is up to us.</em></h3>
+      <p>Start the conversation about research, training, and workforce upgrading for your organisation and your people.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-gold" href="mailto:poonkingwang@sutd.edu.sg?subject=Designing%20a%20Human-AI%20Innovation%20Edge%20%E2%80%94%20let%27s%20talk">Get in Touch</a>
+        <a class="btn btn-ghost" href="https://www.sutd.edu.sg/admissions/academy/" target="_blank" rel="noopener">SUTD Academy</a>
+        <a class="btn btn-ghost" href="https://www.sgtech.org.sg" target="_blank" rel="noopener">SGTech</a>
+        <a class="btn btn-ghost" href="https://www.skillsfuture.gov.sg" target="_blank" rel="noopener">SWDA Support</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">Human-AI <span>Innovation Edge</span></div>
+      <p class="foot-note">Based on <em>Designing a Human-AI Innovation Edge for Enterprises: Strategy Use Cases on Building "Trilingual Skills" (Design x AI x Domain) for the Future of Innovation</em> — a collaboration developed by the Singapore University of Technology and Design (SUTD) and supported by SGTech and SkillsFuture Singapore (SSG), April 2026. SSG merged with Workforce Singapore on 1 July 2026 to form the Skills and Workforce Development Agency (SWDA).</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://www.sutd.edu.sg" target="_blank" rel="noopener">SUTD</a>
+      <a href="https://www.sgtech.org.sg" target="_blank" rel="noopener">SGTech</a>
+      <a href="https://www.skillsfuture.gov.sg" target="_blank" rel="noopener">SWDA (formerly SSG)</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ======== DATA ======== */
+const DECISIONS=[
+ {t:"Ensure no one is left behind — because all can innovate now",
+  x:"From SMEs to MNCs, private to public sector, young to not-so-young: 1,500 workshop participants across ages and career stages were all empowered to upskill and innovate with AI — by going beyond text prompting to the full power of multi-modal and multi-agent AI.",
+  cv:"+30%",cl:"rise in AI adoption, proficiency and confidence across all participants"},
+ {t:"First let them learn to build. Then build to learn.",
+  x:"People who built AI solutions learned more, retained more, and changed their behaviour more than those taught about AI in a classroom. At Vector Green, once employees saw they could build solutions to everyday problems, the conversation about AI changed completely.",
+  cv:"+41%",cl:"AI confidence gain at Vector Green after one hands-on workshop"},
+ {t:"Know when to work with AI — and when not to",
+  x:"Building with AI develops a valuable new skill: judgement. When to use AI as a Tool, when as a Teammate, and when to choose Neither — because the work demands what humans value. That judgement prevents wasted investment and raises ROI.",
+  cv:"67%",cl:"of KHL Printing employees now see AI as both tool and teammate, up from 56%"},
+ {t:"Trust the people closest to the work to innovate",
+  x:"The employees who do the work every day know where the real problems are. At SimplyGo, employee-built prototypes led to automated compliance monitoring, resume screening, and predictive IT operations — now governed by a formal AI Working Group.",
+  cv:"28",cl:"working prototypes built by SimplyGo employees, most with low-code tools"},
+ {t:"Deepen domain expertise — it multiplies Design·AI's power",
+  x:"Domain expertise turbocharges what people can do with design and AI — and vice versa. At Art Loft, a decade of pedagogy is what made AI meaningful. At SJ Group, architectural expertise is what made each AI agent accurate enough to trust.",
+  cv:"10+ yrs",cl:"of domain practice behind Art Loft's six new AI-enhanced learning activities"},
+ {t:"Scale confidence to act — because skills without confidence stall",
+  x:"Eunoia Junior College built confidence deliberately: 1:5 instructor ratios, platform-agnostic curriculum, teachers and students learning as peers. In the What's Next programme for workers 50+, confidence was designed in from the start.",
+  cv:"98%",cl:"of mature workers say generative AI is important for their career transition"},
+ {t:"Start small, then build better, bigger, and bolder",
+  x:"Every single use case started small. A student project became a national institution's research tool. SJ Group's AI capability started as a team of four. What matters less is whether you are small — and more whether you start.",
+  cv:"<1 yr",cl:"from student project to SJ Group's deployed AI Studio plugin"},
+ {t:"Redesign work so humans do what humans do best",
+  x:"With skills, confidence, trust and judgement in place, organisations can redesign work with humans at the centre: human-in-the-loop AI-native workflows, AI as devil's advocate for complex decisions, co-forecasting that compresses months into weeks.",
+  cv:"Weeks",cl:"instead of months — strategic forecasting cycles when humans co-forecast with AI"},
+ {t:"Create new tasks, new roles, and new value",
+  x:"Economics research shows AI is only unambiguously pro-worker when it creates new tasks. Singapore is already creating them — including an entirely new role, the Forward Deployment Designer, that took one stalled AI project to beta in three months.",
+  cv:"3 mths",cl:"from stalled AI project to beta testing, with a Forward Deployment Designer"},
+ {t:"Invest in community — it's not just 'me', it's 'we'",
+  x:"Teachers with students. Employees across teams. SSG's policy, SGTech's enterprise mobilisation, SUTD's research and training. No single organisation could produce these results alone — the ecosystem they built together is what makes it work.",
+  cv:"3",cl:"national partners — SSG x SGTech x SUTD — behind one converged ecosystem"}
+];
+
+const CASES=[
+ {f:"sme",tag:"SME · Printing & Packaging",org:"KHL Printing",stat:"61%",sl:"average improvement across productivity, creativity, quality & time savings",
+  hook:"22 employees built AI prototypes for their own daily problems — and built the case for organisational AI adoption.",
+  stats:[["61%","avg improvement"],["63%","peak time savings"],["22","employees trained"]],
+  body:"Twenty-two employees across two corporate runs of the AI Impact Series designed and prototyped AI solutions for day-to-day operational challenges — spanning front, middle and back office: data processing (91% quality), inbound call handling (up to 88% time savings), sales pipeline, procurement, payments. All prototypes kept a <strong>human in the loop</strong> for judgement calls. Most were built with everyday tools like ChatGPT, Gemini and Copilot — transformation doesn't require advanced AI capability, just design experimentation and workflow insight.",
+  quote:null,
+  lesson:"The perception shift is the real asset: 67% now see AI as both tool and teammate. That readiness is what makes deeper AI integration stick."},
+ {f:"sme",tag:"SME · Green Energy",org:"Vector Green",stat:"+41%",sl:"AI confidence after one hands-on workshop",
+  hook:"From consumers of AI to builders of AI: engineers, PMs and commercial leads built five deployable prototypes in a day.",
+  stats:[["+41%","AI confidence"],["82%","improved in AI skills"],["100%","transfer intent"]],
+  body:"A lean team of specialised professionals went from casual AI use (drafting emails) to building a <strong>lead generation agent, contract review tool, pricing manager, operational dashboard and form automation system</strong> — all judged deployable by the builders themselves. The biggest skill gain: understanding which business problems AI can solve. The second: spotting AI ideas that are technically interesting but not practically useful — the judgement that separates AI value from AI hype.",
+  quote:"“Once you see your own people build something that solves a problem they face every day, the conversation about AI changes completely.”",
+  lesson:"Domain expertise is an asset AI multiplies, not a skill AI replaces. The next step is setting the organisation up to let people keep building."},
+ {f:"large",tag:"Local Company · Transport Payments",org:"SimplyGo",stat:"28",sl:"AI prototypes built by non-technical employees",
+  hook:"Employee-built prototypes now feed a formal AI Working Group that governs the pipeline from prototype to production.",
+  stats:[["28","prototypes"],["85%+","regular AI use"],["12","business functions"]],
+  body:"28 employees prototyped AI solutions across reporting (50–80% perceived time savings), contract review, recruitment screening, customer enquiry routing, compliance monitoring, transaction anomaly detection and more — mostly with <strong>low-code conversational AI, no programming required</strong>. SimplyGo then institutionalised the momentum: an AI Working Group with representatives from every division captures and prioritises use cases with proper governance, so promising prototypes can scale into enterprise solutions.",
+  quote:null,
+  lesson:"Pair bottom-up innovation with top-down governance. Prototypes prove value; a working group turns them into infrastructure."},
+ {f:"large",tag:"MNC · Architecture & Engineering",org:"SJ Group",stat:"30 sec",sl:"per design iteration — down from half a day",
+  hook:"Three SUTD graduates inside SJ Group built five AI agents that compress days of early-stage design work into seconds.",
+  stats:[["5","AI agents in pipeline"],[">99%","time reduction/stage"],["<1 yr","student project to plugin"]],
+  body:"What began as a four-month university project became SJ Group's dedicated AI design capability — 'Team 6'. Five modular agents (each named after a famous architect) automate development controls, block configuration, site layout, concept narratives and visualisation, with <strong>an architect reviewing at every handoff</strong>. An architect can now explore ten or fifteen site configurations in a morning instead of committing early to one. Adoption lesson: tools with transparent, explainable outputs won trust fastest.",
+  quote:"“The goal is to automate the mundane aspects of architectural work, freeing up time for architects to focus on creative and high-value tasks.”",
+  lesson:"Build AI capability inside the firm, where practitioners shape it — so the knowledge lives in your organisation, not in a vendor contract."},
+ {f:"sme",tag:"Micro-SME · Art Education",org:"Art Loft",stat:"<10",sl:"people — and a decade of expertise AI could build on",
+  hook:"A founder-educator's ten years of pedagogy is what made AI meaningful — and yielded six new AI-enhanced activities.",
+  stats:[["10+ yrs","domain expertise"],["6","new AI activities designed"],["1","studio, no tech dept"]],
+  body:"Working with an SUTD researcher, the founder co-designed a custom GPT to help museum educators ask better questions. The AI was fast — ten inquiry prompts in seconds — but generic until her <strong>See–Think–Wonder framework and years of real tours</strong> gave it something meaningful to learn from. Designing the AI also made her own tacit expertise visible. She has since created six new AI-enhanced activities, from personalised learning-journey narratives for parents to more precise progress tracking.",
+  quote:"“AI makes you more human, if you use it wisely.”",
+  lesson:"Small organisations are better positioned than they think. The barrier to meaningful AI is not scale — it's the quality of expertise you already have."},
+ {f:"large public",tag:"Attraction · Horticulture",org:"Gardens by the Bay",stat:"2×",sl:"industry-average training effect sizes",
+  hook:"Instead of teaching people about AI, put them in a room with real problems and ask them to build. Results: double the benchmark.",
+  stats:[["46%","AI literacy jump in a day"],["84%","will apply within 3 months"],["+31%","AI confidence"]],
+  body:"Across two Design·AI workshop sessions, employees built working AI applications — image recognition, chatbots, automated video tools — and their measured gains were <strong>roughly double what published research says typical workplace training achieves</strong>. The most strategic gain: integration and critical thinking. Employees developed the judgement to challenge AI ideas that don't fit reality and assess whether a use case is worth pursuing — the skill that prevents wasted AI investment.",
+  quote:"“My domain expertise is what makes AI useful. I know what matters on the ground. AI doesn't know any of that without me.”",
+  lesson:"Ask not whether to train employees in AI, but whether your training format is effective enough to justify the investment. Hands-on building is."},
+ {f:"public",tag:"Public Sector · National Library Board",org:"Oral History Centre",stat:"3 mths",sl:"from student demo to a national institution's research tool",
+  hook:"A four-week student prototype became OHC Interview Pro — covering the full oral history research workflow.",
+  stats:[["1 mth","prototype to demo"],["4","research functions"],["0","lines of code required"]],
+  body:"Six students with limited AI experience built a voice-enabled interview practice tool in four weeks. The National Archives' Oral History Centre didn't just adopt it — they <strong>transformed it</strong>, encoding their specialist methodology into a four-function research tool: topic feasibility, outline review, enhanced mock interviews, deep transcript analysis. A replicable pathway: classroom prototype → institutional demo → domain-specific deployment.",
+  quote:"“The most meaningful use of AI in skill development may be the creation of repeatable, human-interaction-focused practice systems that make high-quality rehearsal feasible at scale.”",
+  lesson:"Adopt, then adapt. The highest-value AI tools are ones your domain experts reshape around their own methodology."},
+ {f:"large public",tag:"Organisation-wide Transformation",org:"SUTD's AI Agent Ecosystem",stat:"15+",sl:"purpose-scoped AI agents across every major function",
+  hook:"Portfolio over platform: many narrow, owned, governed agents beat one all-knowing assistant.",
+  stats:[["15+","agents & chatbots"],["1","unified platform (Teams)"],["100%","with named owners"]],
+  body:"Rather than one general-purpose assistant, SUTD deliberately built a portfolio of narrow agents — procurement, compliance, wayfinding, finance, research ethics — each grounded in approved knowledge and <strong>each with a named domain owner</strong>. Students even co-created the SUTD Wiki bot. The agents absorb the routine; humans handle the consequential. Scaling advice: start narrow, assign ownership before building, deploy on platforms people already use, and formalise governance past ten bots.",
+  quote:null,
+  lesson:"A portfolio of narrow, owned agents is not a compromise on ambition — it's a higher standard of institutional reliability."},
+ {f:"talent",tag:"New Role · SSG x SGTech x SUTD",org:"The Forward Deployment Designer",stat:"3 mths",sl:"from stalled AI project to beta testing",
+  hook:"A new role for the AI age: domain experts who uncover what people need, then prototype the answer with AI.",
+  stats:[["Days","stalled briefs to buildable plans"],["Any","domain background works"],["1","working prototype as the deliverable"]],
+  body:"Most AI projects don't fail on technology — they fail because nobody translated the real problem into something buildable. The FDD sits at the crossroads of people and technology: <strong>listens, maps workflows, reframes the problem, then builds a working prototype with low-code AI tools</strong>. Unlike Palantir's Forward Deployed Engineer, the FDD figures out what should be built — and today's AI tools mean the deliverable is a clickable prototype, not a slide deck.",
+  quote:"“The work was about understanding people — their tasks, frustrations and goals. It's design thinking and application.”",
+  lesson:"Your next AI hire may not be an engineer. Domain experts who can build with AI collapse the gap between aspiration and execution."},
+ {f:"leader",tag:"Leadership Research",org:"Can AI Replace Leaders?",stat:"30–50%",sl:"accuracy of AI on complex executive decisions — vs 80–90% on simple ones",
+  hook:"16 frontier AI models tested against a senior strategist's reasoning. The 'Fidelity Gap' is real — and it's an advantage.",
+  stats:[["16","frontier models tested"],["80–90%","simple decision accuracy"],["Top 5%","of papers at Stanford-run venue"]],
+  body:"A cognitive digital twin of a senior strategist was benchmarked against 16 frontier models. On binary preference questions, AI scored 80–90%. On complex, multi-variable trade-offs, accuracy collapsed to 30–50%. AI can <strong>reproduce the voice of decision-making, but not yet the logic</strong>. The design opportunity: automate the simple, repeatable decisions — and for complex ones, exploit AI's different reasoning as devil's advocate, blind-spot detector and muse.",
+  quote:null,
+  lesson:"Don't deploy AI as if fidelity were a given. Map which decisions are simple enough to delegate — and redesign the rest around human judgement."},
+ {f:"leader",tag:"Strategy & Foresight",org:"Forecasting Fast vs Slow",stat:"Weeks",sl:"for strategic foresight cycles that used to take months or years",
+  hook:"Frontier AI advances weekly; your planning cycle doesn't. Co-forecasting with AI closes the gap.",
+  stats:[["Weeks","per foresight cycle"],["Task-level","granularity, not job titles"],["10+ yrs","of forecasting research behind it"]],
+  body:"SUTD's co-forecasting process translates roles into task-level units scored by an <strong>ensemble of AI models</strong>, then maps the human interactions that numbers alone miss — who hands what to whom, where human exchange still drives performance. Built into an agentic workflow, forecasts are generated and refreshed in weeks. The payoff: agile work redesign before disruption hardens, and precision upskilling targeted to each person's actual tasks.",
+  quote:null,
+  lesson:"Generic forecasts are poor proxies. A role isn't 'at risk' or 'safe' — it's internally uneven, and you need task-level sight to act on it."},
+ {f:"talent",tag:"Higher Education · SUTD",org:"The Future Is Built, Not Taught",stat:"Yr 1–2",sl:"students delivering working solutions to industry partners",
+  hook:"AI collapsed the prototyping timeline — so first-years now build what used to take final-year skills.",
+  stats:[["2","meetings to a working prototype"],["7","industry & internal projects"],["Hours","instead of days to first prototype"]],
+  body:"In SUTD's Building 0 programme, Year 1 and 2 undergraduates delivered working solutions to industry: a manpower management system prototyped in two meetings, conversational CAD on consumer hardware, privacy-first transcription. Meanwhile faculty are redesigning assessment — finding <strong>AI can grade creative work accurately if humans calibrate it carefully</strong> — and students show sophisticated judgement about when to use AI, and when to skip it so their ideas stay original.",
+  quote:"“The high fidelity of today is the low fidelity of tomorrow. What counts as 'good enough to show' keeps advancing.”",
+  lesson:"The constraint has shifted from technical skill to design judgement. Hire and develop for the latter."},
+ {f:"talent public",tag:"Education · Junior College",org:"Eunoia Junior College",stat:"50+",sl:"working prototypes built by teachers and students in one day",
+  hook:"Teachers and students learnt side by side — and a school taught itself, in under a month.",
+  stats:[["94%","rated hands-on sessions 5+/6"],["1 mth","from seed to whole-school scale"],["1:5","instructor-to-learner ratio"]],
+  body:"SUTD trained a small core group; three weeks later that group led Learning Day for nearly 200 colleagues. Teachers built a policymaker simulation, an interactive chemistry visualiser, a cognitive-load design coach. Students built an AI-vision push-up counter, a timetable optimiser, a rubric-based assignment checker. The surprise: <strong>genuine two-way learning</strong> — students pushed creative boundaries; teachers brought subject depth AI couldn't.",
+  quote:"“When the technology is genuinely new to everyone in the room, teachers and students learn better together than apart.”",
+  lesson:"Train the core, then let them teach. That's the difference between running a workshop and building a capability."},
+ {f:"talent",tag:"Mature Workforce · WSG x SUTD",org:"What's Next",stat:"98%",sl:"of mature workers say GenAI matters for their career transition",
+  hook:"Embodied tools + AI + peers: career reinvention for professionals 50 and older — and it works.",
+  stats:[["~380","professionals, 16 sessions"],["80%","of undecided left with a direction"],["98%","satisfaction"]],
+  body:"Mature professionals carry decades of expertise but face a Self-Discovery Gap that skills matrices can't close. What's Next sequences <strong>career journey maps, tactile card-sorts, role-play, and a custom What's Next GPT</strong> that synthesises each person's own discoveries into an explorable action space. Every participant then builds a Custom GPT encoding their own expertise — proof, in their own hands, of what they know and can still become.",
+  quote:"“Almost like having a personalised pocket career coach... Some of the options genuinely blew my mind!”",
+  lesson:"Your most experienced people are an AI asset, not an AI risk — their domain depth is exactly what AI multiplies."},
+ {f:"talent",tag:"Citizens · Everyday Life",org:"All Can Innovate",stat:"4",sl:"ordinary citizens doing the extraordinary with AI",
+  hook:"A Pilates instructor, a patient, a father, a mother — innovation isn't just for technologists.",
+  stats:[["2 decades","of teaching amplified by AI"],["40 pages","of insurance policy decoded"],["3","kids on a 'guided co-use' protocol"]],
+  body:"A fitness instructor uses GPT-4o as a second pair of eyes on student posture — while she keeps 'the hands, the heart, and the judgement'. A patient with a rare blood disorder used AI to decode insurance policies and support rehabilitation. A father built a layered family protocol for AI use by age. A mother built 'Ninja Comics', a custom GPT for her son's Chinese practice. In every case, <strong>AI entered through a door that domain knowledge had already opened</strong>.",
+  quote:"“AI didn't replace doctors, but it lightened the load and reduced the loneliness.”",
+  lesson:"If citizens can innovate at home, your employees can innovate at work. The raw capability is already in your building."},
+ {f:"public talent",tag:"Future of Cities",org:"Citizen Co-creation",stat:"8",sl:"master plan proposals in one three-hour session",
+  hook:"Five AI agents co-facilitated alongside humans — turning citizen participation into citizen co-creation.",
+  stats:[["5","custom AI co-facilitators"],["3 hrs","per studio session"],["100s","of options via the Reimaginator app"]],
+  body:"Forty participants of wildly varying experience produced eight coherent, strategically distinct master plans in three hours — supported by five custom agents: a Site Expert, a Great Master of design precedents, simulated stakeholder Personas, a Design Methods Guru and a Guest Crit. A post-workshop app, the <strong>Reimaginator</strong>, lets anyone remix all eight proposals into hundreds of visualised options — so participation doesn't end when the session does.",
+  quote:"“They work together as a continuous, powerful loop — master planning, design thinking, and AI tools.”",
+  lesson:"AI as co-facilitator lets everyone contribute meaningfully, regardless of prior training. Imagine the same for your next strategy offsite."},
+ {f:"public large",tag:"National Ecosystem",org:"SSG x SGTech x SUTD",stat:"105k+",sl:"individuals trained under the national skills movement",
+  hook:"How it started, how it's going: a decade of skills infrastructure converging into a national human-AI innovation edge.",
+  stats:[["1,600","AI-related courses supported"],["1,400+","SGTech member companies"],["$50M","SUTD's Design·AI pivot"]],
+  body:"SSG — now the Skills and Workforce Development Agency (SWDA) — built the skills infrastructure: frameworks across 38 sectors, and a 2026 task-level analysis of ~37,000 tasks showing ~24% have high AI potential. SGTech mobilised enterprises through the AI Impact Series. SUTD became the world's first Design·AI university, with a $50M pivot and the D·AI Fab Lab. <strong>Their converged evidence: workers 30–88% more effective at adopting AI, 30% more confident, 11% more creative</strong> — exactly the workers who create the new tasks that keep AI pro-worker.",
+  quote:null,
+  lesson:"No single organisation could produce these results alone. The ecosystem is the edge — and your company can plug into it."}
+];
+
+/* ======== RENDER DECISIONS ======== */
+const DEC_ICONS=[
+ "M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20v-1c0-3 3-4 6-4s6 1 6 4v1m0-5c3 0 8 .5 8 4v1",
+ "M14 4l6 6-2 2-6-6 2-2zM12 6L3 15v6h6l9-9",
+ "M12 3v18M5 7l7-2 7 2M5 7l-3 7h6l-3-7zm14 0l-3 7h6l-3-7M8 21h8",
+ "M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z",
+ "M12 2l10 5-10 5L2 7l10-5zM2 12l10 5 10-5M2 17l10 5 10-5",
+ "M2 18l7-7 4 4 9-9M15 6h7v7",
+ "M12 21v-8m0 0C12 8 8 5 3 5c0 5 4 8 9 8zm0-3c1-4 4-6 9-6 0 4-3 7-8 7",
+ "M21 12a9 9 0 1 1-3-6.7M21 3v6h-6",
+ "M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z",
+ "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c3 3.5 3 14.5 0 18-3-3.5-3-14.5 0-18z"
+];
+const decList=document.getElementById('decList');
+DECISIONS.forEach((d,i)=>{
+  const el=document.createElement('div');el.className='dec-item';
+  el.innerHTML=`<div class="dec-head"><div class="dec-num"><svg class="dec-ic" viewBox="0 0 24 24"><path d="${DEC_ICONS[i]}" stroke-linecap="round" stroke-linejoin="round"/></svg>${String(i+1).padStart(2,'0')}</div><div class="dec-title">${d.t}</div><div class="dec-arrow">+</div></div>
+  <div class="dec-body"><div class="dec-body-inner"><p class="dec-text">${d.x}</p><div class="dec-chip"><div class="cv">${d.cv}</div><div class="cl">${d.cl}</div></div></div></div>`;
+  el.querySelector('.dec-head').addEventListener('click',()=>{
+    const open=el.classList.contains('open');
+    document.querySelectorAll('.dec-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.dec-body').style.maxHeight=null});
+    if(!open){el.classList.add('open');const b=el.querySelector('.dec-body');b.style.maxHeight=b.scrollHeight+'px'}
+  });
+  decList.appendChild(el);
+});
+
+/* ======== RENDER CASES ======== */
+const grid=document.getElementById('caseGrid');
+CASES.forEach((c,i)=>{
+  const el=document.createElement('div');el.className='case-card';el.dataset.f=c.f;el.dataset.cat=c.f.split(' ')[0];
+  el.innerHTML=`<div class="case-tag">${c.tag}</div><h3>${c.org}</h3><div class="case-stat">${c.stat}</div><div class="case-statlabel">${c.sl}</div><p class="case-hook">${c.hook}</p><div class="case-more">Read the story <span>&rarr;</span></div>`;
+  el.addEventListener('click',()=>openModal(i));
+  grid.appendChild(el);
+});
+
+/* filters */
+document.getElementById('filters').addEventListener('click',e=>{
+  if(!e.target.classList.contains('filter'))return;
+  document.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
+  e.target.classList.add('active');
+  const f=e.target.dataset.f;
+  document.querySelectorAll('.case-card').forEach(c=>{
+    c.classList.toggle('hidden',f!=='all'&&!c.dataset.f.split(' ').includes(f));
+  });
+});
+
+/* modal */
+const back=document.getElementById('modalBack'),content=document.getElementById('modalContent');
+function openModal(i){
+  const c=CASES[i];
+  content.innerHTML=`<div class="case-tag">${c.tag}</div><h3>${c.org}</h3>
+  <div class="modal-stats">${c.stats.map(s=>`<div class="mstat"><div class="v">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('')}</div>
+  <div class="modal-body">${c.body}</div>
+  ${c.quote?`<div class="modal-quote">${c.quote}</div>`:''}
+  <div class="modal-lesson"><b>What this means for your organisation</b>${c.lesson}</div>`;
+  back.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeModal(){back.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('modalClose').addEventListener('click',closeModal);
+back.addEventListener('click',e=>{if(e.target===back)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+/* ======== TABS ======== */
+document.querySelectorAll('.ttn-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.ttn-tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.ttn-panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');document.getElementById('tab-'+t.dataset.tab).classList.add('active');
+}));
+
+/* ======== PLAYBOOK ======== */
+const PB=["Everyone can access AI innovation training — not just the tech team","Our people build AI solutions hands-on, not just attend talks about AI","We teach judgement: AI as tool, teammate — or neither","Frontline employees are trusted (and expected) to prototype solutions","We invest in deepening domain expertise alongside AI skills","We deliberately build confidence, not just competence","We have started — even if small","We are redesigning workflows around what humans do best","We are creating new tasks and new roles, not only automating old ones","We partner beyond our walls — associations, universities, government"];
+const pbGrid=document.getElementById('pbGrid'),pbScore=document.getElementById('pbScore'),pbMsg=document.getElementById('pbMsg');
+PB.forEach((p,i)=>{
+  const el=document.createElement('div');el.className='pb-item';
+  el.innerHTML=`<div class="pb-check">&#10003;</div><span>${i+1}. ${p}</span>`;
+  el.addEventListener('click',()=>{el.classList.toggle('checked');updatePB()});
+  pbGrid.appendChild(el);
+});
+function updatePB(){
+  const n=document.querySelectorAll('.pb-item.checked').length;
+  pbScore.textContent=n;
+  let m;
+  if(n===0)m="Tick the decisions you've already made to see where you stand.";
+  else if(n<=3)m="You're at the starting line — which is exactly where every case in this report began. Decision 7 says it best: what matters is not whether you're small, but whether you start.";
+  else if(n<=6)m="You've built momentum. The cases suggest your next multiplier is trust: put building power in the hands of the people closest to the work.";
+  else if(n<=9)m="You're ahead of most. Now compound it — redesign work around what humans do best, and create new tasks and roles, not just efficiencies.";
+  else m="Ten out of ten — you're designing the human-AI innovation edge this report describes. Partner with the ecosystem to go bigger and bolder.";
+  pbMsg.textContent=m;
+}
+
+/* ======== ANIMATIONS ======== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('on');
+  e.target.querySelectorAll('.count').forEach(animateCount);
+  e.target.querySelectorAll('.bar-fill').forEach(b=>b.style.width=b.dataset.w);
+  e.target.querySelectorAll('.ring-val').forEach(r=>r.style.strokeDashoffset=r.dataset.off);
+  e.target.querySelectorAll('.gap-bar').forEach(b=>{b.style.width=b.dataset.w+'px'});
+  io.unobserve(e.target);
+}),{threshold:.2});
+document.querySelectorAll('.reveal,.stat-cell,.evidence-card').forEach(el=>io.observe(el));
+
+function animateCount(el){
+  if(el.dataset.done)return;el.dataset.done=1;
+  const target=+el.dataset.target,dur=1600,t0=performance.now();
+  function tick(t){
+    const p=Math.min((t-t0)/dur,1),v=Math.floor(target*(1-Math.pow(1-p,3)));
+    el.textContent=v.toLocaleString();
+    if(p<1)requestAnimationFrame(tick);else el.textContent=target.toLocaleString();
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+<script data-goatcounter="https://kr48vr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
